@@ -5,6 +5,7 @@ import ConnectSection from "./components/ConnectSection";
 import EventsSection from "./components/EventsSection";
 import ExpertiseSection from "./components/ExpertiseSection";
 import ExploreSection from "./components/ExploreSection";
+import Footer from "./components/Footer";
 import TrustedBySection from "./components/TrustedBySection";
 
 export default function Home() {
@@ -18,6 +19,7 @@ export default function Home() {
       <ExploreSection />
       <EventsSection />
       <ConnectSection />
+      <Footer />
     </div>
   );
 }
