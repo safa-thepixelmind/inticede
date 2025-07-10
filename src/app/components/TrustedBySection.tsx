@@ -19,7 +19,7 @@ export default function TrustedBySection() {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
         {/* Text Block */}
         <div className="max-w-[380px]">
-          <h2 className="text-2xl font-semibold text-blue-900 mb-4">Trusted by</h2>
+          <h2 className="text-2xl font-semibold text-blue-900 mb-4 font-grown">Trusted by</h2>
           <p className="text-gray-700 text-sm leading-relaxed">
             We’re proud to be trusted by industry leaders like amante, Nykaa, Jockey, Zivame, and Enamor.
             These collaborations reflect our commitment to quality, reliability, and long-term partnerships

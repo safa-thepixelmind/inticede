@@ -5,7 +5,7 @@ export default function EventsSection() {
   return (
     <section className="relative bg-[#E5E5E5] w-full py-16 overflow-hidden">
       {/* Heading */}
-      <h2 className="text-[24px] text-[#1F3A93] font-semibold text-center mb-12">
+      <h2 className="text-[24px] text-[#1F3A93] font-semibold text-center mb-12 font-grown">
         Events
       </h2>
 

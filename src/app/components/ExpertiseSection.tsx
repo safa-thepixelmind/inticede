@@ -24,7 +24,7 @@ const expertiseData = [
 export default function ExpertiseSection() {
   return (
     <section className="py-16 px-4 md:px-6 bg-white text-center">
-      <h2 className="text-3xl font-semibold text-blue-900 mb-4">Our Expertise</h2>
+      <h2 className="text-3xl font-semibold text-blue-900 mb-4 font-grown">Our Expertise</h2>
       <p className="max-w-3xl mx-auto text-gray-700 text-sm md:text-base mb-2">
         With deep industry knowledge and a global supply network, we specialize in sourcing, product development, and quality assurance.
       </p>
@@ -49,7 +49,7 @@ export default function ExpertiseSection() {
               />
             </div>
             <div className="px-2 pt-4 text-center">
-              <h3 className="text-sm font-medium text-gray-800 leading-tight">
+              <h3 className="text-sm font-medium text-gray-800 leading-tight font-montserrat">
                 {item.title}
               </h3>
             </div>

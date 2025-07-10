@@ -9,7 +9,7 @@ export default function ExploreSection() {
       <div className="flex flex-col lg:flex-row items-start justify-between gap-10 max-w-7xl mx-auto">
         {/* Left Content */}
         <div className="max-w-[595px] space-y-6">
-          <h2 className="text-3xl text-blue-900 font-semibold leading-tight">
+          <h2 className="text-3xl text-blue-900 font-semibold leading-tight font-grown">
             Explore our premium raw material collection
           </h2>
           <p className="text-gray-700 text-sm max-w-[534px]">
@@ -40,8 +40,8 @@ export default function ExploreSection() {
       {/* Bottom Section: Garment Collection */}
       <div className="max-w-7xl mx-auto text-center">
         <p className="text-sm text-gray-600 mb-2">Explore</p>
-        <h2 className="text-2xl md:text-3xl text-blue-900 font-semibold leading-snug max-w-[1082px] mx-auto mb-4">
-          A curated range of finished garments for comfort, function, and modern style
+        <h2 className="text-2xl md:text-3xl text-blue-900 font-semibold leading-snug max-w-[1082px] mx-auto mb-4 font-grown">
+          A curated range of finished garments for comfort function and modern style
         </h2>
         <p className="text-sm text-gray-700 max-w-[643px] mx-auto mb-10">
           Discover our diverse collection of finished products, thoughtfully crafted to suit every need.
@@ -54,19 +54,19 @@ export default function ExploreSection() {
             <div className="w-[210px] h-[209px] relative">
               <Image src="/images/explore/intimate.jpg" alt="Intimate wear" layout="fill" objectFit="cover" />
             </div>
-            <p className="mt-2 text-sm font-medium" style={{ color: '#1F3A93' }}>Intimate wear</p>
+            <p className="mt-2 text-sm font-medium font-montserrat" style={{ color: '#1F3A93' }}>Intimate wear</p>
           </div>
           <div className="flex flex-col items-center">
             <div className="w-[210px] h-[210px] relative">
               <Image src="/images/explore/menswear.jpg" alt="Menswear" layout="fill" objectFit="cover" />
             </div>
-            <p className="mt-2 text-sm font-medium" style={{ color: '#1F3A93' }}>Menswear</p>
+            <p className="mt-2 text-sm font-medium font-montserrat" style={{ color: '#1F3A93' }}>Menswear</p>
           </div>
           <div className="flex flex-col items-center">
             <div className="w-[209px] h-[210px] relative">
               <Image src="/images/explore/loungewear.jpg" alt="Loungewear" layout="fill" objectFit="cover" />
             </div>
-            <p className="mt-2 text-sm font-medium" style={{ color: '#1F3A93' }}>Loungewear</p>
+            <p className="mt-2 text-sm font-medium font-montserrat" style={{ color: '#1F3A93' }}>Loungewear</p>
           </div>
 
           {/* Row 2 */}
@@ -74,19 +74,19 @@ export default function ExploreSection() {
             <div className="w-[211px] h-[211px] relative">
               <Image src="/images/explore/thermal.jpg" alt="Thermal Wear" layout="fill" objectFit="cover" />
             </div>
-            <p className="mt-2 text-sm font-medium" style={{ color: '#1F3A93' }}>Thermal Wear</p>
+            <p className="mt-2 text-sm font-medium font-montserrat" style={{ color: '#1F3A93' }}>Thermal Wear</p>
           </div>
           <div className="flex flex-col items-center">
             <div className="w-[209px] h-[210px] relative">
               <Image src="/images/explore/shapewear.jpg" alt="Shapewear" layout="fill" objectFit="cover" />
             </div>
-            <p className="mt-2 text-sm font-medium" style={{ color: '#1F3A93' }}>Shapewear</p>
+            <p className="mt-2 text-sm font-medium font-montserrat" style={{ color: '#1F3A93' }}>Shapewear</p>
           </div>
           <div className="flex flex-col items-center">
             <div className="w-[209px] h-[209px] relative">
               <Image src="/images/explore/athleisure.jpg" alt="Athleisure wear" layout="fill" objectFit="cover" />
             </div>
-            <p className="mt-2 text-sm font-medium" style={{ color: '#1F3A93' }}>Athleisure wear</p>
+            <p className="mt-2 text-sm font-medium font-montserrat" style={{ color: '#1F3A93' }}>Athleisure wear</p>
           </div>
         </div>
 

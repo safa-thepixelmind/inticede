@@ -18,12 +18,12 @@ export default function About() {
         {/* Text on the right */}
         <div className="w-full md:w-[483px] flex flex-col justify-center">
           {/* About Us heading */}
-          <h2 className="text-blue-900 text-[28px] font-semibold mb-4">
+          <h2 className="text-blue-900 text-[28px] font-semibold mb-4 font-grown">
             About Us
           </h2>
 
           {/* Description text */}
-          <p className="text-gray-700 text-[16px] leading-relaxed">
+          <p className="text-gray-700 text-[16px] leading-relaxed font-montserrat">
             The name <strong>Inticede BSD</strong> is inspired by the word “intercede,”
             meaning to act or advocate on someone’s behalf — a role that perfectly
             reflects the function of a buying and sourcing agency. The latter part of

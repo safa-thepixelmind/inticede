@@ -1,35 +1,19 @@
+
 import type { Metadata } from "next";
-import {
-  Geist,
-  Geist_Mono,
-  Great_Vibes,
-  Montserrat_Alternates,
-} from "next/font/google";
+import { Montserrat_Alternates } from "next/font/google";
+import localFont from 'next/font/local';
 import "./globals.css";
 
-// Montserrat Alternates for subheadings
+const grown = localFont({
+  src: '/Fonts/GrownPersonalUse-0Wa7P.ttf',
+  display: 'swap',
+  variable: '--font-grown',
+});
+
 const montserrat = Montserrat_Alternates({
   subsets: ["latin"],
   weight: "400",
   variable: "--font-montserrat",
-});
-
-// Great Vibes for heading
-const greatVibes = Great_Vibes({
-  subsets: ["latin"],
-  weight: "400",
-  variable: "--font-great-vibes",
-});
-
-// Geist fonts (default Next.js fonts)
-const geistSans = Geist({
-  subsets: ["latin"],
-  variable: "--font-geist-sans",
-});
-
-const geistMono = Geist_Mono({
-  subsets: ["latin"],
-  variable: "--font-geist-mono",
 });
 
 export const metadata: Metadata = {
@@ -44,9 +28,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} ${montserrat.variable} ${greatVibes.variable} antialiased`}
-      >
+      <body className={`${montserrat.variable} ${grown.variable} antialiased`}>
         {children}
       </body>
     </html>

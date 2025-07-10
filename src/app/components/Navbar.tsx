@@ -21,7 +21,7 @@ export default function Navbar() {
       {/* Wrapper with 38px side padding */}
       <div className="px-[38px] flex items-center justify-between h-full relative w-full">
         {/* Left nav links */}
-        <nav className="hidden md:flex gap-4 text-sm text-blue-900">
+        <nav className="hidden md:flex gap-4 text-sm text-blue-900 font-grown font-bold">
           {links.slice(0, 4).map((link) => (
             <a key={link} href="#" className="hover:text-blue-500">
               {link}
@@ -41,7 +41,7 @@ export default function Navbar() {
         </div>
 
         {/* Right nav links */}
-        <nav className="hidden md:flex gap-4 text-sm text-blue-900 ml-auto">
+        <nav className="hidden md:flex gap-4 text-sm text-blue-900 ml-auto font-grown font-bold">
           {links.slice(4).map((link) => (
             <a key={link} href="#" className="hover:text-blue-500">
               {link}
