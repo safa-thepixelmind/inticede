@@ -1,4 +1,6 @@
 
+import Footer from "@/app/components/Footer";
+import Navbar from "@/app/components/Navbar";
 import type { Metadata } from "next";
 import { Montserrat_Alternates } from "next/font/google";
 import localFont from 'next/font/local';
@@ -29,7 +31,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${montserrat.variable} ${grown.variable} antialiased`}>
+        <Navbar />
         {children}
+        <Footer />
       </body>
     </html>
   );
