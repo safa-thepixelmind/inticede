@@ -26,7 +26,7 @@ export default function ExploreSection() {
         </div>
 
         {/* Right Image */}
-        <div className="w-[565px] h-[565px] relative flex-shrink-0">
+        <div className="w-[565px] h-[565px] relative flex-shrink-0 grayscale">
           <Image
             src="/images/explore/rawmaterial.jpg"
             alt="Raw Materials"
@@ -49,45 +49,21 @@ export default function ExploreSection() {
 
         {/* Category Grid */}
         <div className="grid grid-cols-2 md:grid-cols-3 gap-x-10 gap-y-10 justify-center items-start">
-          {/* Row 1 */}
-          <div className="flex flex-col items-center">
-            <div className="w-[210px] h-[209px] relative">
-              <Image src="/images/explore/intimate.jpg" alt="Intimate wear" layout="fill" objectFit="cover" />
+          {[
+            { src: "/images/explore/intimate.jpg", alt: "Intimate wear", label: "Intimate wear" },
+            { src: "/images/explore/menswear.jpg", alt: "Menswear", label: "Menswear" },
+            { src: "/images/explore/loungewear.jpg", alt: "Loungewear", label: "Loungewear" },
+            { src: "/images/explore/thermal.jpg", alt: "Thermal Wear", label: "Thermal Wear" },
+            { src: "/images/explore/shapewear.jpg", alt: "Shapewear", label: "Shapewear" },
+            { src: "/images/explore/athleisure.jpg", alt: "Athleisure wear", label: "Athleisure wear" },
+          ].map((item, index) => (
+            <div className="flex flex-col items-center" key={index}>
+              <div className="relative w-[210px] h-[210px] grayscale">
+                <Image src={item.src} alt={item.alt} layout="fill" objectFit="cover" />
+              </div>
+              <p className="mt-2 text-sm font-medium font-montserrat text-[#1F3A93]">{item.label}</p>
             </div>
-            <p className="mt-2 text-sm font-medium font-montserrat" style={{ color: '#1F3A93' }}>Intimate wear</p>
-          </div>
-          <div className="flex flex-col items-center">
-            <div className="w-[210px] h-[210px] relative">
-              <Image src="/images/explore/menswear.jpg" alt="Menswear" layout="fill" objectFit="cover" />
-            </div>
-            <p className="mt-2 text-sm font-medium font-montserrat" style={{ color: '#1F3A93' }}>Menswear</p>
-          </div>
-          <div className="flex flex-col items-center">
-            <div className="w-[209px] h-[210px] relative">
-              <Image src="/images/explore/loungewear.jpg" alt="Loungewear" layout="fill" objectFit="cover" />
-            </div>
-            <p className="mt-2 text-sm font-medium font-montserrat" style={{ color: '#1F3A93' }}>Loungewear</p>
-          </div>
-
-          {/* Row 2 */}
-          <div className="flex flex-col items-center">
-            <div className="w-[211px] h-[211px] relative">
-              <Image src="/images/explore/thermal.jpg" alt="Thermal Wear" layout="fill" objectFit="cover" />
-            </div>
-            <p className="mt-2 text-sm font-medium font-montserrat" style={{ color: '#1F3A93' }}>Thermal Wear</p>
-          </div>
-          <div className="flex flex-col items-center">
-            <div className="w-[209px] h-[210px] relative">
-              <Image src="/images/explore/shapewear.jpg" alt="Shapewear" layout="fill" objectFit="cover" />
-            </div>
-            <p className="mt-2 text-sm font-medium font-montserrat" style={{ color: '#1F3A93' }}>Shapewear</p>
-          </div>
-          <div className="flex flex-col items-center">
-            <div className="w-[209px] h-[209px] relative">
-              <Image src="/images/explore/athleisure.jpg" alt="Athleisure wear" layout="fill" objectFit="cover" />
-            </div>
-            <p className="mt-2 text-sm font-medium font-montserrat" style={{ color: '#1F3A93' }}>Athleisure wear</p>
-          </div>
+          ))}
         </div>
 
         {/* Learn More Button */}

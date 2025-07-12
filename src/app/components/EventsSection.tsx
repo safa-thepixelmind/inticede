@@ -9,53 +9,38 @@ export default function EventsSection() {
         Events
       </h2>
 
-      {/* Ellipses - now relative to section */}
-      <div className="absolute w-[190px] h-[190px] border border-[#1F3A93] rounded-full top-[309px] left-[98px] hidden md:block z-0"></div>
-      <div className="absolute w-[190px] h-[190px] border border-[#1F3A93] rounded-full top-[309px] right-[98px] hidden md:block z-0"></div>
+      {/* Left and Right Ellipses outside the white box */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-[50%] -translate-y-[50%] w-full max-w-[918px] z-0 pointer-events-none">
+        {/* Left Arc */}
+        <div className="absolute w-[190px] h-[190px] border border-[#1F3A93] rounded-full -left-[105px] top-1/2 -translate-y-1/2 hidden md:block" />
+        {/* Right Arc */}
+        <div className="absolute w-[190px] h-[190px] border border-[#1F3A93] rounded-full -right-[105px] top-1/2 -translate-y-1/2 hidden md:block" />
+      </div>
 
-      {/* Inner white container */}
-      <div className="relative bg-[#FAF9F6] max-w-[918px] mx-auto p-4 md:p-8 rounded-md z-10">
+      {/* White Container Overlapping the Ellipses */}
+      <div className="relative z-10 bg-[#FAF9F6] max-w-[918px] mx-auto p-4 md:p-8 rounded-md overflow-hidden">
         {/* Image Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {/* Row 1 */}
-          <div className="flex flex-col items-center">
-            <div className="w-[278px] h-[258px] relative">
-              <Image src="/images/events/event1.jpg" alt="Intimasia Kochi 2018" layout="fill" objectFit="cover" />
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-x-6 gap-y-8">
+          {[
+            { src: "/images/events/event1.jpg", label: "Intimasia Kochi 2018" },
+            { src: "/images/events/event2.jpg", label: "Intimasia Mumbai 2023" },
+            { src: "/images/events/event3.jpg", label: "SIUF 2025" },
+            { src: "/images/events/event4.jpg", label: "Intimasia Chennai 2018" },
+            { src: "/images/events/event5.jpg", label: "Intimasia Kochi 2018" },
+            { src: "/images/events/event6.jpg", label: "SIUF 2025" },
+          ].map((event, idx) => (
+            <div className="flex flex-col items-center" key={idx}>
+              <div className="w-[278px] h-[258px] relative grayscale">
+                <Image
+                  src={event.src}
+                  alt={event.label}
+                  layout="fill"
+                  objectFit="cover"
+                />
+              </div>
+              <p className="text-[#1F3A93] text-sm mt-2 text-center">{event.label}</p>
             </div>
-            <p className="text-[#1F3A93] text-sm mt-2">Intimasia Kochi 2018</p>
-          </div>
-          <div className="flex flex-col items-center">
-            <div className="w-[280px] h-[258px] relative">
-              <Image src="/images/events/event2.jpg" alt="Intimasia Mumbai 2023" layout="fill" objectFit="cover" />
-            </div>
-            <p className="text-[#1F3A93] text-sm mt-2">Intimasia Mumbai 2023</p>
-          </div>
-          <div className="flex flex-col items-center">
-            <div className="w-[280px] h-[258px] relative">
-              <Image src="/images/events/event3.jpg" alt="SIUF 2025" layout="fill" objectFit="cover" />
-            </div>
-            <p className="text-[#1F3A93] text-sm mt-2">SIUF 2025</p>
-          </div>
-
-          {/* Row 2 */}
-          <div className="flex flex-col items-center">
-            <div className="w-[278px] h-[258px] relative">
-              <Image src="/images/events/event4.jpg" alt="Intimasia Chennai 2018" layout="fill" objectFit="cover" />
-            </div>
-            <p className="text-[#1F3A93] text-sm mt-2">Intimasia Chennai 2018</p>
-          </div>
-          <div className="flex flex-col items-center">
-            <div className="w-[278px] h-[258px] relative">
-              <Image src="/images/events/event5.jpg" alt="Intimasia Kochi 2018" layout="fill" objectFit="cover" />
-            </div>
-            <p className="text-[#1F3A93] text-sm mt-2">Intimasia Kochi 2018</p>
-          </div>
-          <div className="flex flex-col items-center">
-            <div className="w-[278px] h-[258px] relative">
-              <Image src="/images/events/event6.jpg" alt="SIUF 2025" layout="fill" objectFit="cover" />
-            </div>
-            <p className="text-[#1F3A93] text-sm mt-2">SIUF 2025</p>
-          </div>
+          ))}
         </div>
       </div>
     </section>

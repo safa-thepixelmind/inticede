@@ -39,7 +39,7 @@ export default function ExpertiseSection() {
             key={index}
             className="w-[278px] h-[545px] flex flex-col items-center bg-[#D3D2D0] transform transition duration-300 hover:shadow-lg hover:scale-105"
           >
-            <div className="w-[252px] h-[447px] mt-5 relative overflow-hidden rounded-sm">
+            <div className="w-[252px] h-[447px] mt-5 relative overflow-hidden rounded-sm grayscale">
               <Image
                 src={item.image}
                 alt={item.title}

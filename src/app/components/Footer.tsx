@@ -28,7 +28,7 @@ export default function Footer() {
         <div className="flex flex-col gap-6">
           <h3 className="text-lg font-semibold text-[#1F3A93] font-grown">Partner Enquiry Form</h3>
 
-          <div className="flex flex-row gap-6 items-start">
+          <div className="flex flex-row gap-6 items-start flex-wrap md:flex-nowrap">
             {/* Form */}
             <form className="flex flex-col gap-4">
               <div>
@@ -48,6 +48,14 @@ export default function Footer() {
                   className="bg-[#D9D9D9] rounded-[10px] px-3 py-1.5 w-[200px] text-black placeholder:text-black text-sm"
                 />
               </div>
+
+              {/* Submit Button */}
+              <button
+                type="submit"
+                className="mt-2 bg-[#1F3A93] text-white text-sm font-medium py-2 px-4 rounded-[10px] w-[200px] hover:bg-[#173072] transition"
+              >
+                Submit
+              </button>
             </form>
 
             {/* Icons always beside form */}

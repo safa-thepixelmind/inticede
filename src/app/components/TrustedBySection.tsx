@@ -5,10 +5,10 @@ import Image from 'next/image';
 export default function TrustedBySection() {
   return (
     <section className="bg-white px-4 md:px-10 py-16">
-      {/* Combined Logo Banner */}
+      {/* Combined Logo Banner (KEEP COLOR) */}
       <div className="max-w-[1210px] w-full mx-auto h-[227px] relative mb-10">
         <Image
-          src="/images/trustedby/brandsbanner.jpg" // <- Your combined logo image here
+          src="/images/trustedby/brandsbanner.jpg"
           alt="Trusted Brands Logos"
           layout="fill"
           objectFit="contain"
@@ -27,8 +27,8 @@ export default function TrustedBySection() {
           </p>
         </div>
 
-        {/* Image 1: Jockey */}
-        <div className="w-full max-w-[368px] h-[619px] relative">
+        {/* Image 1: Jockey (GRAYSCALE) */}
+        <div className="w-full max-w-[368px] h-[619px] relative grayscale">
           <Image
             src="/images/trustedby/jockey.jpg"
             alt="Jockey Display"
@@ -38,8 +38,8 @@ export default function TrustedBySection() {
           />
         </div>
 
-        {/* Image 2: Nykaa */}
-        <div className="w-full max-w-[369px] h-[619px] relative">
+        {/* Image 2: Nykaa (GRAYSCALE) */}
+        <div className="w-full max-w-[369px] h-[619px] relative grayscale">
           <Image
             src="/images/trustedby/nykaa.png"
             alt="Nykaa Display"
