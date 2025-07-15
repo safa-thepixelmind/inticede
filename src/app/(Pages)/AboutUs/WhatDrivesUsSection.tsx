@@ -8,19 +8,23 @@ export default function WhatDrivesUsSection() {
             {/* Side Images */}
             <div className="hidden md:block absolute top-0 left-0 h-full w-[300px]">
                 <Image
-                    src="/images/AboutUsPage/whatdriveus1.jpg"
-                    alt="Left Visual"
-                    fill
-                    className="object-cover grayscale"
-                />
+  src="/images/AboutUsPage/whatdriveus1.jpg"
+  alt="Left Visual"
+  fill
+  sizes="(max-width: 768px) 0px, 300px"
+  className="object-cover grayscale"
+/>
+
             </div>
             <div className="hidden md:block absolute top-0 right-0 h-full w-[300px]">
                 <Image
-                    src="/images/AboutUsPage/whatdriveus2.jpg"
-                    alt="Right Visual"
-                    fill
-                    className="object-cover grayscale"
-                />
+  src="/images/AboutUsPage/whatdriveus2.jpg"
+  alt="Right Visual"
+  fill
+  sizes="(max-width: 768px) 0px, 300px"
+  className="object-cover grayscale"
+/>
+
             </div>
 
             {/* Text Content */}

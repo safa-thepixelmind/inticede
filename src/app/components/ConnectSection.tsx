@@ -10,9 +10,9 @@ export default function ConnectSection() {
           <Image
             src="/images/connect.jpg"
             alt="Connect"
-            layout="fill"
-            objectFit="cover"
-            className="rounded"
+            fill
+            sizes="(max-width: 768px) 100vw, 603px"
+            className="rounded object-cover"
           />
           <div className="absolute inset-0 flex items-center justify-center">
             <p className="text-[#1F3A93] text-[24px] font-bold">CONNECT</p>
@@ -24,9 +24,9 @@ export default function ConnectSection() {
           <Image
             src="/images/work.jpg"
             alt="Work"
-            layout="fill"
-            objectFit="cover"
-            className="rounded"
+            fill
+            sizes="(max-width: 768px) 100vw, 603px"
+            className="rounded object-cover"
           />
           <div className="absolute inset-0 flex items-center justify-center">
             <p className="text-[#1F3A93] text-[24px] font-bold">WORK</p>

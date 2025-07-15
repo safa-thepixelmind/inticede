@@ -5,24 +5,22 @@ export default function About() {
     <section className="w-full bg-white py-16 px-[38px]">
       <div className="max-w-[1117px] mx-auto flex flex-col md:flex-row gap-8">
         {/* Image on the left */}
-        <div className="w-full md:w-[578px] h-[391px]">
+        <div className="w-full md:w-[578px] h-[391px] relative">
           <Image
             src="/images/homepage/about.jpg"
             alt="About Inticede"
-            width={578}
-            height={391}
-            className="w-full h-full object-cover rounded-md"
+            fill
+            sizes="(max-width: 768px) 100vw, 578px"
+            className="object-cover rounded-md"
           />
         </div>
 
         {/* Text on the right */}
         <div className="w-full md:w-[483px] flex flex-col justify-center">
-          {/* About Us heading */}
           <h2 className="text-blue-900 text-[28px] font-semibold mb-4 font-grown">
             About Us
           </h2>
 
-          {/* Description text */}
           <p className="text-gray-700 text-[16px] leading-relaxed font-montserrat">
             The name <strong>Inticede BSD</strong> is inspired by the word “intercede,”
             meaning to act or advocate on someone’s behalf — a role that perfectly

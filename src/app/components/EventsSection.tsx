@@ -9,18 +9,21 @@ export default function EventsSection() {
         Events
       </h2>
 
-      {/* Left and Right Ellipses outside the white box */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-[50%] -translate-y-[50%] w-full max-w-[918px] z-0 pointer-events-none">
+      {/* Left and Right Ellipses */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-[918px] z-0 pointer-events-none">
         {/* Left Arc */}
         <div className="absolute w-[190px] h-[190px] border border-[#1F3A93] rounded-full -left-[105px] top-1/2 -translate-y-1/2 hidden md:block" />
         {/* Right Arc */}
         <div className="absolute w-[190px] h-[190px] border border-[#1F3A93] rounded-full -right-[105px] top-1/2 -translate-y-1/2 hidden md:block" />
       </div>
 
-      {/* White Container Overlapping the Ellipses */}
-      <div className="relative z-10 bg-[#FAF9F6] max-w-[918px] mx-auto p-4 md:p-8 rounded-md overflow-hidden">
+      {/* White Container */}
+<div
+  className="relative z-10 bg-[#FAF9F6] max-w-[918px] mx-auto px-4 sm:px-6 md:px-8 py-8 rounded-md overflow-hidden"
+  style={{ width: "calc(100% - 40px)" }}
+>
         {/* Image Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-x-6 gap-y-8">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-x-4 gap-y-8">
           {[
             { src: "/images/events/event1.jpg", label: "Intimasia Kochi 2018" },
             { src: "/images/events/event2.jpg", label: "Intimasia Mumbai 2023" },
@@ -29,13 +32,15 @@ export default function EventsSection() {
             { src: "/images/events/event5.jpg", label: "Intimasia Kochi 2018" },
             { src: "/images/events/event6.jpg", label: "SIUF 2025" },
           ].map((event, idx) => (
-            <div className="flex flex-col items-center" key={idx}>
-              <div className="w-[278px] h-[258px] relative grayscale">
+            <div className="flex flex-col items-center w-full" key={idx}>
+              {/* Responsive Image Container */}
+              <div className="w-full aspect-[278/258] relative grayscale overflow-hidden rounded">
                 <Image
                   src={event.src}
                   alt={event.label}
-                  layout="fill"
-                  objectFit="cover"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 278px"
                 />
               </div>
               <p className="text-[#1F3A93] text-sm mt-2 text-center">{event.label}</p>

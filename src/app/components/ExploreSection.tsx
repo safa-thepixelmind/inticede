@@ -4,11 +4,11 @@ import Image from 'next/image';
 
 export default function ExploreSection() {
   return (
-    <section className="bg-white px-4 md:px-10 py-16 space-y-20">
+    <section className="bg-white px-4 md:px-10 py-16 space-y-20 overflow-x-hidden">
       {/* Top Section: Raw Material */}
       <div className="flex flex-col lg:flex-row items-start justify-between gap-10 max-w-7xl mx-auto">
         {/* Left Content */}
-        <div className="max-w-[595px] space-y-6">
+        <div className="w-full lg:max-w-[595px] space-y-6">
           <h2 className="text-3xl text-blue-900 font-semibold leading-tight font-grown">
             Explore our premium raw material collection
           </h2>
@@ -25,14 +25,14 @@ export default function ExploreSection() {
           </button>
         </div>
 
-        {/* Right Image */}
-        <div className="w-[565px] h-[565px] relative flex-shrink-0 grayscale">
+        {/* Right Image (Responsive) */}
+        <div className="w-full lg:w-[565px] aspect-[1/1] relative grayscale rounded overflow-hidden">
           <Image
             src="/images/explore/rawmaterial.jpg"
             alt="Raw Materials"
-            layout="fill"
-            objectFit="cover"
-            className="rounded"
+            fill
+            className="object-cover"
+            sizes="(max-width: 768px) 100vw, 565px"
           />
         </div>
       </div>
@@ -48,7 +48,7 @@ export default function ExploreSection() {
         </p>
 
         {/* Category Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-x-10 gap-y-10 justify-center items-start">
+        <div className="grid grid-cols-2 sm:grid-cols-3 gap-x-6 gap-y-10 justify-center items-start">
           {[
             { src: "/images/explore/intimate.jpg", alt: "Intimate wear", label: "Intimate wear" },
             { src: "/images/explore/menswear.jpg", alt: "Menswear", label: "Menswear" },
@@ -58,8 +58,14 @@ export default function ExploreSection() {
             { src: "/images/explore/athleisure.jpg", alt: "Athleisure wear", label: "Athleisure wear" },
           ].map((item, index) => (
             <div className="flex flex-col items-center" key={index}>
-              <div className="relative w-[210px] h-[210px] grayscale">
-                <Image src={item.src} alt={item.alt} layout="fill" objectFit="cover" />
+              <div className="relative w-full max-w-[210px] aspect-square grayscale rounded overflow-hidden">
+                <Image
+                  src={item.src}
+                  alt={item.alt}
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 45vw, 210px"
+                />
               </div>
               <p className="mt-2 text-sm font-medium font-montserrat text-[#1F3A93]">{item.label}</p>
             </div>

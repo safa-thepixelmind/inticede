@@ -8,13 +8,15 @@ export default function Footer() {
         {/* Left: Logo + Description */}
         <div className="max-w-[562px]">
           <div className="w-[174px] h-[70px] relative mb-6">
-            <Image
-              src="/images/homepage/logo.jpg"
-              alt="Inticede Logo"
-              layout="fill"
-              objectFit="contain"
-            />
-          </div>
+  <Image
+    src="/images/homepage/logo.png"
+    alt="Inticede Logo"
+    fill
+    sizes="(max-width: 768px) 150px, 174px"
+    className="object-contain"
+  />
+</div>
+
           <p className="text-sm text-gray-700 leading-relaxed">
             From innovative sourcing to seamless product development, Inticede offers end-to-end
             solutions tailored for intimate and lifestyle apparel brands. With a strong network of

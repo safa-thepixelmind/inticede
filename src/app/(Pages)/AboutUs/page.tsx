@@ -1,6 +1,7 @@
 import Advantages from "./advantages";
 import InticedeTeam from "./InticedeTeam";
 import SeamlessSolutionsSection from "./SeamlessSolutionsSection";
+import Timeline from "./Timeline";
 import WhatDrivesUsSection from "./WhatDrivesUsSection";
 import WhoWeAre from "./who-we-are";
 import YusufProfile from "./YusufProfile";
@@ -12,6 +13,9 @@ export default function Home() {
     <SeamlessSolutionsSection/>
     <WhatDrivesUsSection/>
     <Advantages/>
+    <Timeline/>
+    
+    {/* Yusuf's Profile and Inticede Team sections */}
     <YusufProfile/>
     <InticedeTeam/>
     

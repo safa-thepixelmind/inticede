@@ -7,11 +7,11 @@ import { Autoplay, Pagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 const images = [
+  '/images/AboutUsPage/img1.png',
+  '/images/AboutUsPage/img2.png',
   '/images/AboutUsPage/img3.png',
-  '/images/AboutUsPage/img3.png',
-  '/images/AboutUsPage/img3.png',
-  '/images/AboutUsPage/img3.png',
-  '/images/AboutUsPage/img3.png',
+  '/images/AboutUsPage/img1.png',
+  '/images/AboutUsPage/img2.png',
   '/images/AboutUsPage/img3.png',
 ];
 
@@ -58,12 +58,12 @@ export default function SeamlessSolutionsSection() {
         >
           {images.map((src, index) => (
             <SwiperSlide key={index}>
-              <div className="overflow-hidden rounded-lg">
+              <div className="overflow-hiddenh-[400px] md:h-[600px] lg:h-[800px] w-full object-contain">
                 <Image
                   src={src}
                   alt={`Slide ${index + 1}`}
-                  width={1600}
-                  height={800}
+                  width={1000}
+                  height={600}
                   className="w-full object-cover grayscale"
                 />
               </div>
@@ -76,4 +76,4 @@ export default function SeamlessSolutionsSection() {
       </div>
     </section>
   );
-}
+}  
