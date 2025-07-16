@@ -1,5 +1,6 @@
 'use client';
 
+import { motion } from 'framer-motion';
 import Image from 'next/image';
 
 const expertiseData = [
@@ -23,21 +24,47 @@ const expertiseData = [
 
 export default function ExpertiseSection() {
   return (
-    <section className="py-16 px-4 sm:px-6 bg-white text-center">
-      <h2 className="text-3xl font-semibold text-blue-900 mb-4 font-grown">Our Expertise</h2>
-      <p className="max-w-3xl mx-auto text-gray-700 text-sm md:text-base mb-2">
-        With deep industry knowledge and a global supply network, we specialize in sourcing, product development, and quality assurance.
-      </p>
-      <p className="max-w-3xl mx-auto text-gray-700 text-sm md:text-base mb-10">
-        Our expertise lies in delivering tailored, end-to-end solutions for intimate and lifestyle apparel brands.
-      </p>
+    <section className="py-16 px-4 sm:px-6 bg-white text-center overflow-hidden">
+      <motion.h2
+        className="text-3xl font-semibold text-blue-900 mb-4 font-grown"
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        viewport={{ once: false, amount: 0.3 }}
+      >
+        Our Expertise
+      </motion.h2>
 
-      {/* Responsive Grid */}
+      <motion.p
+        className="max-w-3xl mx-auto text-gray-700 text-sm md:text-base mb-2"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.2, duration: 0.6 }}
+        viewport={{ once: false, amount: 0.3 }}
+      >
+        With deep industry knowledge and a global supply network, we specialize in sourcing, product development, and quality assurance.
+      </motion.p>
+
+      <motion.p
+        className="max-w-3xl mx-auto text-gray-700 text-sm md:text-base mb-10"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.4, duration: 0.6 }}
+        viewport={{ once: false, amount: 0.3 }}
+      >
+        Our expertise lies in delivering tailored, end-to-end solutions for intimate and lifestyle apparel brands.
+      </motion.p>
+
+      {/* Responsive Grid with Animations */}
       <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4 place-items-center">
         {expertiseData.map((item, index) => (
-          <div
+          <motion.div
             key={index}
             className="w-full max-w-[300px] aspect-[3/5] flex flex-col items-center bg-[#D3D2D0] transform transition duration-300 hover:shadow-lg hover:scale-105"
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: index * 0.2 }}
+            viewport={{ once: false, amount: 0.2 }}
           >
             <div className="w-[90%] aspect-[3/5] mt-5 relative overflow-hidden rounded-sm grayscale">
               <Image
@@ -53,7 +80,7 @@ export default function ExpertiseSection() {
                 {item.title}
               </h3>
             </div>
-          </div>
+          </motion.div>
         ))}
       </div>
     </section>

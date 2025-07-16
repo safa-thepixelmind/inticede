@@ -1,5 +1,6 @@
 'use client';
 
+import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { useEffect, useRef, useState } from 'react';
 import type { Swiper as SwiperType } from 'swiper';
@@ -8,19 +9,15 @@ import 'swiper/css/navigation';
 import { Autoplay, Navigation } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
-const fabrics = [
-  { src: '/images/products/fabric1.jpg', name: 'Lycra blend' },
-  { src: '/images/products/fabric2.jpg', name: 'Bamboo fabric' },
-  { src: '/images/products/fabric3.jpg', name: 'Polyamide fabric' },
-  { src: '/images/products/fabric4.jpg', name: 'Cotton Spandex' },
-  { src: '/images/products/fabric5.jpg', name: 'DTY' },
-  { src: '/images/products/fabric6.jpg', name: 'Power mesh' },
-  { src: '/images/products/fabric7.jpg', name: 'Satin' },
-  { src: '/images/products/fabric8.jpg', name: 'Jersey knit' },
-  { src: '/images/products/fabric9.jpg', name: 'Mesh' },
-];
-
-export default function FabricSection() {
+export default function ProductSection({
+  title,
+  description,
+  images,
+}: {
+  title: string;
+  description: string;
+  images: { src: string; name: string }[];
+}) {
   const prevRef = useRef<HTMLButtonElement | null>(null);
   const nextRef = useRef<HTMLButtonElement | null>(null);
   const [navReady, setNavReady] = useState(false);
@@ -31,14 +28,27 @@ export default function FabricSection() {
 
   return (
     <section className="pt-16 pb-4 px-4 bg-white overflow-hidden">
-      <h2 className="text-3xl md:text-4xl font-grown text-[#1F3A93] text-center mb-4">
-        Fabrics
-      </h2>
+      {/* Animate Heading */}
+      <motion.h2
+        className="text-3xl md:text-4xl font-grown text-[#1F3A93] text-center mb-4"
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: false, amount: 0.3 }}
+        transition={{ duration: 0.5 }}
+      >
+        {title}
+      </motion.h2>
 
-      <p className="text-center text-sm md:text-base font-montserrat font-medium max-w-xl mx-auto mb-10">
-        From concept to creation, we provide all kinds of fabrics required for your production
-        needs sourced with precision and reliability
-      </p>
+      {/* Animate Description */}
+      <motion.p
+        className="text-center text-sm md:text-base font-montserrat font-medium max-w-xl mx-auto mb-10"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: false, amount: 0.3 }}
+        transition={{ duration: 0.5, delay: 0.2 }}
+      >
+        {description}
+      </motion.p>
 
       <div className="relative max-w-[1200px] mx-auto">
         {navReady && (
@@ -71,7 +81,7 @@ export default function FabricSection() {
               nav.nextEl = nextRef.current;
             }}
           >
-            {fabrics.map((fabric, idx) => (
+            {images.map((fabric, idx) => (
               <SwiperSlide key={idx}>
                 <div className="flex flex-col items-center px-2">
                   <div className="relative w-[295px] h-[295px] grayscale">

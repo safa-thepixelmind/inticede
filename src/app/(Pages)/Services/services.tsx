@@ -1,7 +1,8 @@
 'use client';
 
+import { motion } from 'framer-motion';
 import Image from 'next/image';
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import { Autoplay, Navigation } from 'swiper/modules';
@@ -10,80 +11,65 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 const services = [
   {
     title: 'Buying and Sourcing',
-    description: (
-      <>
-        <p><strong>INTICEDE</strong> sources premium raw materials and finished goods at competitive prices, with a strong focus on quality and timely delivery.</p>
-        <p className="mt-2"><strong>End-to-End Solutions</strong><br />
-          From fabrics and trims to final garments — we manage the complete sourcing and production process under one roof.
-        </p>
-        <p className="mt-2"><strong>Smart Vendor & Product Selection</strong><br />
-          We carefully vet factories and source trend-forward, unique products that help brands stand out.
-        </p>
-      </>
-    ),
+    lines: [
+      'INTICEDE sources premium raw materials and finished goods at competitive prices.',
+      'With a strong focus on quality and timely delivery.',
+      'From fabrics and trims to final garments — we manage the complete sourcing process.',
+      'We carefully vet factories and source trend-forward, unique products.',
+    ],
     image: '/images/Services/ser1.jpg',
   },
   {
-    title: 'Design and product development',
-    description: (
-      <>
-        <p><strong>Trend-Led Design Solutions</strong><br />
-          We forecast market shifts to help brands build seasonal, demand-driven collections.
-        </p>
-        <p className="mt-2">
-          Our design team delivers end-to-end support — from styling and tech packs to sampling and prototyping.
-        </p>
-        <p className="mt-2">
-          Specialising in intimate-wear, comfort wear, and sportswear, we offer affordable, market-ready solutions.
-        </p>
-        <p className="mt-2">
-          With ongoing research into trends, techniques, and innovations, we keep your collections future-ready.
-        </p>
-      </>
-    ),
+    title: 'Design and Product Development',
+    lines: [
+      'We forecast market shifts to build seasonal, demand-driven collections.',
+      'Our design team supports styling, tech packs, sampling, and prototyping.',
+      'We specialize in intimate-wear, comfort wear, and sportswear.',
+      'We keep your collections future-ready through ongoing research.',
+    ],
     image: '/images/Services/ser2.jpg',
   },
   {
     title: 'Quality Assurance',
-    description: (
-      <>
-        <p>
-          At <strong>INTICEDE</strong>, quality is non-negotiable. We ensure every product meets the highest standards through strict, multi-stage inspections and close collaboration with accredited labs for rigorous testing.
-        </p>
-        <ul className="list-disc list-inside mt-2 space-y-1">
-          <li>Full inspection for specialized and niche orders</li>
-          <li>Rigorous fabric inspection systems</li>
-          <li>Customized testing based on client benchmarks</li>
-          <li>Strict pre-delivery inspections</li>
-          <li>Final checks aligned with client-defined guidelines</li>
-        </ul>
-      </>
-    ),
+    lines: [
+      'At INTICEDE, quality is non-negotiable.',
+      'We ensure top standards with strict, multi-stage inspections.',
+      'Partnering with accredited labs for rigorous testing.',
+      'Final checks align with client-defined guidelines.',
+    ],
     image: '/images/Services/ser3.png',
   },
   {
-    title: 'Product execution and logistics',
-    description: (
-      <>
-        <p>
-          At <strong>INTICEDE</strong>, we ensure every product meets the highest standards through strict, multi-stage inspections and collaboration with accredited labs for rigorous testing.
-        </p>
-        <ul className="list-disc list-inside mt-2 space-y-1">
-          <li>Full inspection for specialized and niche orders</li>
-          <li>Rigorous fabric inspection systems</li>
-          <li>Customized testing based on client benchmarks</li>
-          <li>Strict pre-delivery inspections</li>
-          <li>Final checks aligned with client-defined guidelines</li>
-        </ul>
-      </>
-    ),
+    title: 'Product Execution and Logistics',
+    lines: [
+      'We coordinate global logistics seamlessly.',
+      'Manage end-to-end documentation and compliance.',
+      'Help brands meet tight timelines efficiently.',
+      'Navigate both domestic and international supply chains.',
+    ],
     image: '/images/Services/ser4.jpg',
   },
 ];
 
+// Animation variants
+const container = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.25,
+    },
+  },
+};
+
+const lineVariant = {
+  hidden: { opacity: 0, y: -20 },
+  visible: { opacity: 1, y: 0 },
+};
+
 export default function ServicesPage() {
   const prevRef = useRef(null);
   const nextRef = useRef(null);
+  const [activeIndex, setActiveIndex] = useState(0);
 
   return (
     <section className="w-full h-screen relative z-0 font-montserrat">
@@ -91,6 +77,7 @@ export default function ServicesPage() {
         modules={[Autoplay, Navigation]}
         autoplay={{ delay: 5000 }}
         loop
+        onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
         navigation={{
           prevEl: prevRef.current,
           nextEl: nextRef.current,
@@ -106,6 +93,7 @@ export default function ServicesPage() {
         {services.map((service, idx) => (
           <SwiperSlide key={idx}>
             <div className="relative w-full h-screen overflow-hidden">
+              {/* Background Image */}
               <div className="absolute inset-0 grayscale z-0">
                 <Image
                   src={service.image}
@@ -117,22 +105,42 @@ export default function ServicesPage() {
                 />
               </div>
 
+              {/* Animated Content */}
               <div className="absolute inset-0 z-10 flex flex-col justify-center items-center text-center px-4 md:px-8">
-                <h2 className="text-[#1F3A93] text-xl md:text-4xl font-grown mb-4">Services</h2>
-                <div className="bg-white/70 px-6 py-8 md:p-10 rounded-lg max-w-3xl w-full">
-                  <h3 className="text-2xl md:text-3xl font-semibold text-[#1F3A93] mb-4 font-grown">
+                <motion.div
+                  key={activeIndex} // re-trigger animation on index change
+                  initial="hidden"
+                  animate="visible"
+                  variants={container}
+                  className="bg-white/70 px-6 py-8 md:p-10 rounded-lg max-w-3xl w-full"
+                >
+                  <motion.h2
+                    className="text-[#1F3A93] text-xl md:text-4xl font-grown mb-4"
+                    variants={lineVariant}
+                  >
+                    Services
+                  </motion.h2>
+                  <motion.h3
+                    className="text-2xl md:text-3xl font-semibold text-[#1F3A93] mb-4 font-grown"
+                    variants={lineVariant}
+                  >
                     {service.title}
-                  </h3>
-                  <div className="text-sm md:text-base text-black leading-relaxed">
-                    {service.description}
+                  </motion.h3>
+
+                  <div className="text-sm md:text-base text-black leading-relaxed space-y-2">
+                    {service.lines.map((line, lineIdx) => (
+                      <motion.p key={lineIdx} variants={lineVariant}>
+                        {line}
+                      </motion.p>
+                    ))}
                   </div>
-                </div>
+                </motion.div>
               </div>
             </div>
           </SwiperSlide>
         ))}
 
-        {/* Custom navigation arrows */}
+        {/* Custom Navigation Arrows */}
         <div
           ref={prevRef}
           className="absolute left-4 top-1/2 transform -translate-y-1/2 z-20 cursor-pointer"

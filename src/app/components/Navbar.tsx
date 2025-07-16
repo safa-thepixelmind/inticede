@@ -1,4 +1,5 @@
 "use client";
+import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
@@ -14,49 +15,87 @@ const links = [
   { name: "Careers", href: "#" },
 ];
 
+// Parent container animation variant
+const navVariants = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.08,
+      delayChildren: 0.3,
+    },
+  },
+};
+
+// Link item animation variant
+const linkItem = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      type: "spring" as const,
+      stiffness: 400,
+      damping: 30,
+    },
+  },
+};
+
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className="bg-white/50 shadow-sm fixed top-0 left-0 right-0 z-50 h-[66px]">
-      <div className="px-[38px] flex items-center justify-between h-full relative w-full">
-        {/* Left nav links */}
-        <nav className="hidden md:flex gap-4 text-sm text-blue-900 font-grown font-bold">
+    <header className="bg-white/50 fixed top-0 left-0 right-0 z-50 h-[75px]">
+      <div className="px-6 sm:px-10 lg:px-[60px] flex items-center justify-between h-full relative w-full">
+        {/* Left nav links with animation */}
+        <motion.nav
+          className="hidden md:flex gap-6 text-base lg:text-lg text-blue-900 font-grown font-bold"
+          initial="hidden"
+          animate="visible"
+          variants={navVariants}
+        >
           {links.slice(0, 4).map(({ name, href }) => (
-            <Link key={name} href={href} className="hover:text-blue-500">
-              {name}
-            </Link>
+            <motion.div key={name} variants={linkItem}>
+              <Link href={href} className="hover:text-blue-500 transition-colors">
+                {name}
+              </Link>
+            </motion.div>
           ))}
-        </nav>
+        </motion.nav>
 
         {/* Center logo */}
-        <div className="absolute left-1/2 -translate-x-1/2">
-          <Link href="/">
-            <Image
-  src="/images/homepage/logo.png"
-  alt="Inticede Logo"
-  width={150}
-  height={40}
-  priority
-  className="w-[150px] h-[40px] opacity-100"
-/>
+<div className="absolute left-1/2 -translate-x-1/2">
+  <Link href="/">
+    <Image
+      src="/images/homepage/logo.png"
+      alt="Inticede Logo"
+      width={160}
+      height={60}
+      className="object-contain"
+    />
+  </Link>
+</div>
 
-          </Link>
-        </div>
 
-        {/* Right nav links */}
-        <nav className="hidden md:flex gap-4 text-sm text-blue-900 ml-auto font-grown font-bold">
+        {/* Right nav links with animation */}
+        <motion.nav
+          className="hidden md:flex gap-6 text-base lg:text-lg text-blue-900 ml-auto font-grown font-bold"
+          initial="hidden"
+          animate="visible"
+          variants={navVariants}
+        >
           {links.slice(4).map(({ name, href }) => (
-            <Link key={name} href={href} className="hover:text-blue-500">
-              {name}
-            </Link>
+            <motion.div key={name} variants={linkItem}>
+              <Link href={href} className="hover:text-blue-500 transition-colors">
+                {name}
+              </Link>
+            </motion.div>
           ))}
-        </nav>
+        </motion.nav>
 
         {/* Mobile menu toggle */}
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="md:hidden text-blue-900 ml-auto text-2xl"
+          className="md:hidden text-blue-900 ml-auto text-3xl"
           aria-label="Toggle menu"
         >
           {isOpen ? "✕" : "☰"}
@@ -65,13 +104,13 @@ export default function Navbar() {
 
       {/* Mobile menu */}
       {isOpen && (
-        <div className="bg-white/80 md:hidden bg-white px-[38px] py-2 space-y-2">
+        <div className="bg-white/90 md:hidden px-6 sm:px-10 lg:px-[60px] py-4 space-y-3">
           {links.map(({ name, href }) => (
             <Link
               key={name}
               href={href}
-              className="block text-blue-900 hover:text-blue-500"
-              onClick={() => setIsOpen(false)} // close menu on link click
+              className="block text-base sm:text-lg text-blue-900 hover:text-blue-500 font-semibold"
+              onClick={() => setIsOpen(false)}
             >
               {name}
             </Link>
