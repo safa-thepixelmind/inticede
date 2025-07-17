@@ -8,7 +8,7 @@ const links = [
   { name: "About Us", href: "/AboutUs" },
   { name: "Services", href: "/Services" },
   { name: "Products", href: "/Products" },
-  { name: "Clients", href: "#" },
+  { name: "Clients", href: "/Clients" },
   { name: "Network", href: "#" },
   { name: "Events", href: "#" },
   { name: "Connect", href: "#" },

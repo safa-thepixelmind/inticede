@@ -1,34 +1,53 @@
 "use client";
 
+import { motion } from "framer-motion";
 import Image from "next/image";
 
 export default function WhatDrivesUsSection() {
     return (
-        <section className="relative bg-white w-full overflow-hidden py-16 px-4">
-            {/* Side Images */}
-            <div className="hidden md:block absolute top-0 left-0 h-full w-[300px]">
+        <section className="relative bg-white w-full overflow-hidden py-16 px-4 mt-16">
+            {/* Left Image */}
+            <motion.div
+                initial={{ x: -200, opacity: 0 }}
+                whileInView={{ x: 0, opacity: 1 }}
+                transition={{ duration: 0.8, ease: "easeOut" }}
+                viewport={{ once: false, amount: 0.3 }}
+                className="hidden md:block absolute top-0 left-0 h-full w-[300px]"
+            >
                 <Image
-  src="/images/AboutUsPage/whatdriveus1.jpg"
-  alt="Left Visual"
-  fill
-  sizes="(max-width: 768px) 0px, 300px"
-  className="object-cover grayscale"
-/>
+                    src="/images/AboutUsPage/whatdriveus1.jpg"
+                    alt="Left Visual"
+                    fill
+                    sizes="(max-width: 768px) 0px, 300px"
+                    className="object-cover grayscale"
+                />
+            </motion.div>
 
-            </div>
-            <div className="hidden md:block absolute top-0 right-0 h-full w-[300px]">
+            {/* Right Image */}
+            <motion.div
+                initial={{ x: 200, opacity: 0 }}
+                whileInView={{ x: 0, opacity: 1 }}
+                transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+                viewport={{ once: false, amount: 0.3 }}
+                className="hidden md:block absolute top-0 right-0 h-full w-[300px]"
+            >
                 <Image
-  src="/images/AboutUsPage/whatdriveus2.jpg"
-  alt="Right Visual"
-  fill
-  sizes="(max-width: 768px) 0px, 300px"
-  className="object-cover grayscale"
-/>
-
-            </div>
+                    src="/images/AboutUsPage/whatdriveus2.jpg"
+                    alt="Right Visual"
+                    fill
+                    sizes="(max-width: 768px) 0px, 300px"
+                    className="object-cover grayscale"
+                />
+            </motion.div>
 
             {/* Text Content */}
-            <div className="relative z-10 mx-auto text-center px-4 md:px-[320px] max-w-7xl">
+            <motion.div
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, ease: "easeOut" }}
+                viewport={{ once: false, amount: 0.3 }}
+                className="relative z-10 mx-auto text-center px-4 md:px-[320px] max-w-7xl"
+            >
                 <h2 className="text-2xl md:text-3xl font-grown text-indigo-900 mb-6">
                     What Drives Us
                 </h2>
@@ -47,7 +66,7 @@ export default function WhatDrivesUsSection() {
                     timely execution at every stage of development—building long-term
                     partnerships rooted in trust, collaboration, and shared success.
                 </p>
-            </div>
+            </motion.div>
         </section>
     );
 }
