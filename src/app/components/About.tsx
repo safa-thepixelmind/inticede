@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 
-// Utility function to wrap each word in a motion.span
+// Utility function to animate words one by one
 const AnimatedWords = ({ text }: { text: string }) => {
   const words = text.split(" ");
 
@@ -40,11 +40,12 @@ const AnimatedWords = ({ text }: { text: string }) => {
 
 export default function About() {
   return (
-    <section className="w-full bg-white py-16 px-[38px]">
-      <div className="max-w-[1117px] mx-auto flex flex-col md:flex-row gap-8">
-        {/* Image with fade-in from left */}
+<section className="w-full bg-white px-4 py-10 sm:px-6 sm:py-12 md:px-10 md:py-14 lg:px-16 lg:py-16 xl:px-20 xl:py-20">
+      <div className="w-full flex flex-col md:flex-row gap-8">
+        
+        {/* Left: Image */}
         <motion.div
-          className="w-full md:w-[578px] h-[391px] relative"
+          className="w-full md:w-1/2 h-[391px] relative"
           initial={{ opacity: 0, x: -50 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8 }}
@@ -54,14 +55,14 @@ export default function About() {
             src="/images/homepage/about.jpg"
             alt="About Inticede"
             fill
-            sizes="(max-width: 768px) 100vw, 578px"
+            sizes="(max-width: 768px) 100vw, 50vw"
             className="object-cover rounded-md"
             priority
           />
         </motion.div>
 
-        {/* Text with staggered animation */}
-        <div className="w-full md:w-[483px] flex flex-col justify-center">
+        {/* Right: Text */}
+        <div className="w-full md:w-1/2 flex flex-col justify-center px-6 md:px-12">
           <motion.h2
             className="text-blue-900 text-[28px] font-semibold mb-4 font-grown"
             initial={{ opacity: 0, x: -40 }}
@@ -72,7 +73,6 @@ export default function About() {
             About Us
           </motion.h2>
 
-          {/* Paragraph split word by word */}
           <AnimatedWords text="The name Inticede BSD is inspired by the word “intercede,” meaning to act or advocate on someone’s behalf — a role that perfectly reflects the function of a buying and sourcing agency. The latter part of the name pays tribute to the intimate apparel industry, which Inticede BSD is committed to supporting and elevating through expert sourcing solutions." />
         </div>
       </div>

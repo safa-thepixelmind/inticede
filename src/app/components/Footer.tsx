@@ -3,19 +3,19 @@ import Image from 'next/image';
 
 export default function Footer() {
   return (
-    <footer className="bg-[#F9F9F9] w-full py-10 px-[20px] md:px-[44px]">
-      <div className="max-w-[1201px] mx-auto flex flex-col lg:flex-row justify-between gap-10">
+    <footer className="bg-[#F9F9F9] w-full py-16 px-0">
+      <div className="w-full px-4 sm:px-8 md:px-12 lg:px-16 flex flex-col lg:flex-row justify-between gap-10">
         {/* Left: Logo + Description */}
         <div className="max-w-[562px]">
           <div className="w-[174px] h-[70px] relative mb-6">
-  <Image
-    src="/images/homepage/logo.png"
-    alt="Inticede Logo"
-    fill
-    sizes="(max-width: 768px) 150px, 174px"
-    className="object-contain"
-  />
-</div>
+            <Image
+              src="/images/homepage/logo.png"
+              alt="Inticede Logo"
+              fill
+              sizes="(max-width: 768px) 150px, 174px"
+              className="object-contain"
+            />
+          </div>
 
           <p className="text-sm text-gray-700 leading-relaxed">
             From innovative sourcing to seamless product development, Inticede offers end-to-end
@@ -26,7 +26,7 @@ export default function Footer() {
           </p>
         </div>
 
-        {/* Right: Form + Social Icons (always side by side) */}
+        {/* Right: Form + Social Icons */}
         <div className="flex flex-col gap-6">
           <h3 className="text-lg font-semibold text-[#1F3A93] font-grown">Partner Enquiry Form</h3>
 
@@ -51,7 +51,6 @@ export default function Footer() {
                 />
               </div>
 
-              {/* Submit Button */}
               <button
                 type="submit"
                 className="mt-2 bg-[#1F3A93] text-white text-sm font-medium py-2 px-4 rounded-[10px] w-[200px] hover:bg-[#173072] transition"
@@ -60,7 +59,7 @@ export default function Footer() {
               </button>
             </form>
 
-            {/* Icons always beside form */}
+            {/* Icons beside form */}
             <div className="flex flex-col gap-3 pt-2">
               <Image src="/images/homepage/facebookicon.png" alt="Facebook" width={37} height={37} />
               <Image src="/images/homepage/linkedinicon.png" alt="LinkedIn" width={37} height={37} />

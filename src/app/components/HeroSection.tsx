@@ -6,22 +6,24 @@ import Image from "next/image";
 export default function HeroSection() {
   return (
     <section className="pt-[81px] bg-white overflow-hidden">
-      {/* Hero Image with fade-in animation */}
+      {/* Hero Image with fade-in animation and increased width */}
       <motion.div
-        className="relative w-full aspect-[1206/744]"
+        className="relative w-full px-0 sm:px-10 lg:px-[60px]" // Match navbar left/right padding
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 1, ease: "easeOut" }}
-        viewport={{ once: false, amount: 0.3 }} // <- triggers every time it scrolls into view
+        viewport={{ once: false, amount: 0.3 }}
       >
-        <Image
-          src="/images/homepage/hero.png"
-          alt="Hero visual"
-          fill
-          sizes="100vw"
-          className="object-contain rounded"
-          priority
-        />
+        <div className="relative w-full aspect-[1206/744]">
+          <Image
+            src="/images/homepage/hero.png"
+            alt="Hero visual"
+            fill
+            sizes="100vw"
+            className="object-cover rounded" // changed from object-contain
+            priority
+          />
+        </div>
       </motion.div>
 
       {/* Centered Text Below */}

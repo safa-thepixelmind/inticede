@@ -14,11 +14,13 @@ const slideIn = {
 
 export default function ExploreSection() {
   return (
-    <section className="bg-white px-4 md:px-10 py-16 space-y-20 overflow-x-hidden">
+    <section className="w-full bg-white px-4 sm:px-6 md:px-10 lg:px-16 xl:px-20 py-16 space-y-20 overflow-x-hidden">
+      
       {/* Top Section: Raw Material */}
-      <div className="flex flex-col lg:flex-row items-start justify-between gap-10 max-w-7xl mx-auto">
+      <div className="w-full flex flex-col lg:flex-row items-start justify-between gap-10">
+        
         {/* Left Content */}
-        <div className="w-full lg:max-w-[595px] space-y-6">
+        <div className="w-full lg:w-1/2 space-y-6">
           <motion.h2
             className="text-3xl text-blue-900 font-semibold leading-tight font-grown"
             initial="hidden"
@@ -31,7 +33,7 @@ export default function ExploreSection() {
           </motion.h2>
 
           <motion.p
-            className="text-gray-700 text-sm max-w-[534px]"
+            className="text-gray-700 text-sm"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: false, amount: 0.3 }}
@@ -42,7 +44,7 @@ export default function ExploreSection() {
           </motion.p>
 
           <motion.ul
-            className="list-disc list-inside text-sm text-gray-800 space-y-1 max-w-[533px]"
+            className="list-disc list-inside text-sm text-gray-800 space-y-1"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: false, amount: 0.3 }}
@@ -54,7 +56,6 @@ export default function ExploreSection() {
             <li>Add on intimate wear products</li>
           </motion.ul>
 
-          {/* Static Button (no animation) */}
           <button className="bg-[#D9D9D9] text-black text-sm px-4 py-1.5 rounded-[10px] w-[88px]">
             Learn more
           </button>
@@ -62,7 +63,7 @@ export default function ExploreSection() {
 
         {/* Right Image */}
         <motion.div
-          className="w-full lg:w-[565px] aspect-[1/1] relative grayscale rounded overflow-hidden"
+          className="w-full lg:w-1/2 aspect-[1/1] relative grayscale rounded overflow-hidden"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: false, amount: 0.3 }}

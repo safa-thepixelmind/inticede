@@ -27,7 +27,7 @@ export default function ProductSection({
   }, []);
 
   return (
-    <section className="pt-16 pb-4 px-4 bg-white overflow-hidden">
+    <section className="pt-20 pb-4 px-4 bg-white overflow-hidden">
       {/* Animate Heading */}
       <motion.h2
         className="text-3xl md:text-4xl font-grown text-[#1F3A93] text-center mb-4"
@@ -50,7 +50,7 @@ export default function ProductSection({
         {description}
       </motion.p>
 
-      <div className="relative max-w-[1200px] mx-auto">
+      <div className="relative w-full">
         {navReady && (
           <Swiper
             modules={[Navigation, Autoplay]}
@@ -83,7 +83,7 @@ export default function ProductSection({
           >
             {images.map((fabric, idx) => (
               <SwiperSlide key={idx}>
-                <div className="flex flex-col items-center px-2">
+                <div className="flex flex-col items-center px-4">
                   <div className="relative w-[295px] h-[295px] grayscale">
                     <Image
                       src={fabric.src}
@@ -104,18 +104,19 @@ export default function ProductSection({
         )}
 
         {/* Navigation Arrows */}
-        <button
-          ref={prevRef}
-          className="absolute left-[-20px] top-1/2 -translate-y-1/2 bg-[#d1d5db] text-xl rounded-full w-9 h-9 flex items-center justify-center shadow hover:bg-[#b0b4b9] transition z-10"
-        >
-          &#8592;
-        </button>
-        <button
-          ref={nextRef}
-          className="absolute right-[-20px] top-1/2 -translate-y-1/2 bg-[#d1d5db] text-xl rounded-full w-9 h-9 flex items-center justify-center shadow hover:bg-[#b0b4b9] transition z-10"
-        >
-          &#8594;
-        </button>
+<button
+  ref={prevRef}
+  className="absolute left-2 md:left-4 top-1/2 -translate-y-1/2 bg-[#d1d5db] text-xl rounded-full w-9 h-9 flex items-center justify-center shadow hover:bg-[#b0b4b9] transition z-10"
+>
+  &#8592;
+</button>
+<button
+  ref={nextRef}
+  className="absolute right-2 md:right-4 top-1/2 -translate-y-1/2 bg-[#d1d5db] text-xl rounded-full w-9 h-9 flex items-center justify-center shadow hover:bg-[#b0b4b9] transition z-10"
+>
+  &#8594;
+</button>
+
       </div>
 
       <div className="text-center mt-8">

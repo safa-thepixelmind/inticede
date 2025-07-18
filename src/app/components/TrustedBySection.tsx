@@ -1,50 +1,81 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { motion, useAnimation } from 'framer-motion';
 import Image from 'next/image';
+import { useEffect, useRef } from 'react';
 
 export default function TrustedBySection() {
+  const controls = useAnimation();
+  const marqueeRef = useRef(null);
+
+  const brandImages = [
+    '/images/trustedby/nykaa.jpg',
+    '/images/trustedby/clovia.jpg',
+    '/images/trustedby/enamor.jpg',
+    '/images/trustedby/jokey.png',
+    '/images/trustedby/zivame.jpg',
+  ];
+
+  useEffect(() => {
+    controls.start({
+      x: ['0%', '-50%'],
+      transition: {
+        duration: 20,
+        ease: 'linear',
+        repeat: Infinity,
+      },
+    });
+  }, [controls]);
+
+  const handleMouseEnter = () => controls.stop();
+  const handleMouseLeave = () => {
+    controls.start({
+      x: ['0%', '-50%'],
+      transition: {
+        duration: 20,
+        ease: 'linear',
+        repeat: Infinity,
+      },
+    });
+  };
+
   return (
-    <section className="bg-white px-4 md:px-10 py-16 overflow-x-hidden">
-      {/* Brand Banner - Continuous Scroll */}
-      <div className="relative w-full overflow-hidden max-w-[1210px] mx-auto mb-10 aspect-[1210/227]">
+    <section className="w-full bg-white px-4 sm:px-6 lg:px-10 py-16 overflow-x-hidden">
+      
+      {/* Full-width Marquee showing 5 logos at a time */}
+      <div
+        className="relative w-full overflow-hidden"
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+      >
         <motion.div
-          className="absolute top-0 left-0 w-[200%] h-full flex"
-          animate={{ x: ['0%', '-50%'] }}
-          transition={{
-            duration: 20,
-            ease: 'linear',
-            repeat: Infinity,
-          }}
+          className="flex"
+          animate={controls}
+          ref={marqueeRef}
         >
-          {/* Duplicate for seamless scroll */}
-          <div className="w-1/2 h-full relative">
-            <Image
-              src="/images/trustedby/brandsbanner.jpg"
-              alt="Trusted Brands Logos"
-              fill
-              className="object-contain"
-              sizes="(max-width: 768px) 100vw, 1210px"
-              priority
-            />
-          </div>
-          <div className="w-1/2 h-full relative">
-            <Image
-              src="/images/trustedby/brandsbanner.jpg"
-              alt="Duplicate Trusted Brands"
-              fill
-              className="object-contain"
-              sizes="(max-width: 768px) 100vw, 1210px"
-            />
-          </div>
+          {[...brandImages, ...brandImages].map((src, index) => (
+            <div
+              key={index}
+              className="relative flex-shrink-0 w-[20%] h-[80px]"
+            >
+              <Image
+                src={src}
+                alt={`Brand ${index}`}
+                fill
+                className="object-contain"
+                sizes="20vw"
+              />
+            </div>
+          ))}
         </motion.div>
       </div>
 
       {/* Content Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 max-w-7xl mx-auto">
+      <div className="w-full mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+        
         {/* Text Block */}
         <motion.div
-          className="w-full max-w-[380px]"
+          className="w-full"
           initial={{ opacity: 0, x: -60 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.7, ease: 'easeOut' }}
@@ -53,14 +84,14 @@ export default function TrustedBySection() {
           <h2 className="text-xl sm:text-2xl md:text-3xl font-semibold text-blue-900 mb-4 font-grown">
             Trusted by
           </h2>
-          <p className="text-sm sm:text-base md:text-lg text-gray-700 leading-relaxed">
+          <p className="text-sm sm:text-base md:text-lg text-gray-700 leading-relaxed max-w-[500px]">
             We’re proud to be trusted by industry leaders like amante, Nykaa, Jockey, Zivame, and Enamor.
             These collaborations reflect our commitment to quality, reliability, and long-term partnerships
             in the intimate apparel space.
           </p>
         </motion.div>
 
-        {/* Image 1 */}
+        {/* Brand Image 1 */}
         <motion.div
           className="w-full aspect-[369/619] relative grayscale overflow-hidden rounded"
           initial={{ opacity: 0, x: -60 }}
@@ -77,7 +108,7 @@ export default function TrustedBySection() {
           />
         </motion.div>
 
-        {/* Image 2 */}
+        {/* Brand Image 2 */}
         <motion.div
           className="w-full aspect-[369/619] relative grayscale overflow-hidden rounded"
           initial={{ opacity: 0, x: -60 }}
@@ -89,7 +120,6 @@ export default function TrustedBySection() {
             src="/images/trustedby/nykaa.png"
             alt="Nykaa Display"
             fill
-            priority
             className="object-cover"
             sizes="(max-width: 768px) 100vw, 369px"
           />
