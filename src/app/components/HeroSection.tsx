@@ -5,7 +5,7 @@ import Image from "next/image";
 
 export default function HeroSection() {
   return (
-    <section className="pt-[81px] bg-white overflow-hidden">
+    <section className="pt-[82px] bg-white overflow-hidden">
       {/* Hero Image with fade-in animation and increased width */}
       <motion.div
         className="relative w-full px-0 sm:px-10 lg:px-[60px]" // Match navbar left/right padding

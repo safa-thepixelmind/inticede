@@ -8,14 +8,16 @@ export default function Advantages() {
     {
       src: '/images/AboutUsPage/global.png',
       alt: 'Global Connections',
-      title: 'Experience the benefits of our extensive industry expertise and global connections',
+      title:
+        'Experience the benefits of our extensive industry expertise and global connections',
       desc:
         'We are a one-stop-shop providing complete sourcing solutions globally, managing each step in the global supply chain process for major intimate wear retailers, brands and manufacturers.',
     },
     {
       src: '/images/AboutUsPage/design.png',
       alt: 'Design Innovation',
-      title: 'Bring your vision to life with our in-house design innovation market foresight',
+      title:
+        'Bring your vision to life with our in-house design innovation market foresight',
       desc:
         'Backed by a skilled design and research team, INTICEDE helps intimatewear brands, retailers and manufacturers develop innovative collections while staying ahead of domestic and global trends.',
     },
@@ -35,7 +37,6 @@ export default function Advantages() {
 
   return (
     <div className="px-4 py-16 md:px-16 bg-white text-center font-montserrat overflow-hidden">
-      {/* Heading Animation */}
       <motion.h2
         className="text-2xl md:text-4xl font-semibold text-indigo-900 mb-14 font-grown"
         initial={{ opacity: 0, x: -50 }}
@@ -68,19 +69,18 @@ export default function Advantages() {
                 },
               }}
             >
-              {/* Image */}
-              <div className="relative w-full aspect-[4/3] grayscale border border-gray-200 rounded overflow-hidden">
+              {/* ✅ Consistent Image Rendering for All */}
+              <div className="w-[400px] h-[300px] relative">
                 <Image
                   src={card.src}
                   alt={card.alt}
                   fill
                   sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                  className="object-contain"
+                  className="object-cover grayscale border border-gray-200 rounded"
                   priority={i === 0}
                 />
               </div>
 
-              {/* Title word-by-word */}
               <h3 className="text-lg font-semibold mt-6 px-4 flex flex-wrap justify-center">
                 {titleWords.map((word, index) => (
                   <motion.span key={index} variants={wordVariants} className="mr-1">
@@ -89,7 +89,6 @@ export default function Advantages() {
                 ))}
               </h3>
 
-              {/* Description word-by-word */}
               <p className="text-gray-600 mt-2 text-sm px-4 flex flex-wrap justify-center">
                 {descWords.map((word, index) => (
                   <motion.span key={index} variants={wordVariants} className="mr-1">

@@ -1,6 +1,7 @@
 
 import Footer from "@/app/components/Footer";
 import Navbar from "@/app/components/Navbar";
+import { ReactLenis } from "@/app/utils/lenis";
 import type { Metadata } from "next";
 import { Montserrat_Alternates } from "next/font/google";
 import localFont from 'next/font/local';
@@ -30,11 +31,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <ReactLenis root>
       <body className={`${montserrat.variable} ${grown.variable} antialiased`}>
+        
         <Navbar />
         {children}
         <Footer />
       </body>
+      </ReactLenis>
     </html>
   );
 }

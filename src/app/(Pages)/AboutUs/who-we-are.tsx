@@ -9,7 +9,7 @@ const words = paragraph.split(' ');
 
 export default function WhoWeAre() {
   return (
-    <section className="relative w-full px-4 py-16 flex flex-col lg:flex-row justify-start items-center lg:items-start max-w-[1200px] mx-auto overflow-hidden">
+    <section className="relative w-full px-4 pt-[90px] py-16 flex flex-col lg:flex-row justify-start items-center lg:items-start max-w-[1200px] mx-auto overflow-hidden">
       {/* IMAGE BLOCK with Stagger */}
       <motion.div
         className="relative w-[90%] sm:w-[450px] md:w-[510px] h-[600px] sm:h-[700px] md:h-[750px] shrink-0"

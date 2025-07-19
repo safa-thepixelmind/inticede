@@ -53,7 +53,7 @@ export default function Navbar() {
   }, []);
 
   return (
-    <header className="bg-white/50 fixed top-0 left-0 right-0 z-50 h-[82px]">
+    <header className="bg-white/50 fixed top-0 left-0 right-0 z-50 h-[70px]">
       <div className="px-6 sm:px-10 lg:px-[60px] flex items-end justify-between h-full relative w-full">
 
         {/* Left nav */}
@@ -75,7 +75,7 @@ export default function Navbar() {
         )}
 
         {/* Center Logo */}
-        <div className="absolute left-1/2 -translate-x-1/2 bottom-[14px]">
+        <div className="absolute left-1/2 -translate-x-1/2">
           <Link href="/">
             <Image
               src="/images/homepage/logo.png"
